@@ -1,0 +1,6 @@
+Criteria	Ratings	Pts
+This criterion is linked to a Learning OutcomeCompletion		25 pts
+This criterion is linked to a Learning OutcomeCorrectness		25 pts
+This criterion is linked to a Learning OutcomeReflection		25 pts
+This criterion is linked to a Learning OutcomeCode Quality		25 pts
+Total Points: 100	Total Points: 100	Total Points: 100

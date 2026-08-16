@@ -1,0 +1,7 @@
+Submit your work as a folder named: Week 5_Graded Mini Project_[Your Last Name].zip, containing the following files:
+File	Description
+mp1_prompt_lab.ipynb (or .py)	End-to-end implementation comparing the four prompting strategies
+mp1_comparison.md (or notebook section)	Summary comparison table showing performance metrics
+mp1_writeup.md	One-page reflection discussing findings and recommendations
+requirements.txt	List of Python packages used
+README.md	Instructions for running the project and interpreting results

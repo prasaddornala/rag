@@ -1,0 +1,95 @@
+Mini Project- Prompt Lab
+Compare LLM Strategies on a Task
+Mini Project 1 · Week 5 deliverable · ~5-8 hours across 3 days.
+A small integrative build that exercises everything you learned
+in W1-W5.
+What you're building
+A small notebook (or script) that compares four prompting
+strategies on the same task, and tells you which one wins —
+with numbers, not opinions.
+The task: extract three structured fields from a job posting
+snippet. Specifically:
+company — the company doing the hiring
+role — the job title
+years_experience_required — the minimum experience required (integer)
+You'll run all four strategies against 10 sample snippets, score
+the results against a reference set, and write a 1-page reflection
+on what you found.
+Why this exists
+By the end of W5 you've touched a lot — system prompts, async
+pipelines, FastAPI services, cost tracking, golden sets, LLM-as-judge.
+But you've never built one thing that uses all of it.
+MP1 is that one thing. The point isn't to learn anything new. It's
+to feel comfortable composing what you already know.
+It also gives you something concrete to point at when someone asks
+"how do you compare prompting strategies?" — a question that
+comes up forever in this work.
+The four strategies
+You'll implement four prompting strategies. They are deliberately
+different in shape:
+All four use the same model (gpt-4o-mini) and the same
+temperature (0.0). Only the prompt differs. That's the variable
+you're isolating.
+What you need to do
+Step 1 — Read the data (15 min)
+Load data/job_snippets.jsonl (10 entries) and
+data/golden_set.jsonl (the ideal extractions). Skim a few
+entries. Notice that some are clean ("Acme Corp seeks a Senior
+Engineer with 5+ years"), some are messy ("We want a builder, ~3
+years"), and some are intentionally ambiguous.
+Step 2 — Write the four prompts (45 min)
+Write four prompt variants in prompts.py (or as cells in your
+notebook). Each prompt should accept a single job snippet and
+return a JSON-like response.
+Keep prompts focused. The point isn't to write the best prompt
+of each kind — it's to write a clear example of each kind. A
+beginner-level zero-shot prompt is fine if it's actually zero-shot.
+Step 3 — Wire up async batching (60 min)
+Run all 10 snippets × 4 strategies = 40 LLM calls. Do this in
+parallel using the asyncio + httpx pattern you built in W2.
+Capture for each call:
+The strategy name
+The snippet ID
+The model's raw response
+The parsed extraction (or None if parsing failed)
+Cost in USD
+Latency in seconds
+Step 4 — Score against the golden set (60 min)
+For each (snippet × strategy) pair, compute three scores:
+The first two are deterministic — just compare strings (case
+insensitive, trim whitespace). The third uses gpt-4o as judge
+(same pattern as W5).
+Step 5 — Build the comparison table (30 min)
+Aggregate by strategy:
+Step 6 — Write your 1-page reflection (30 min)
+In mp1_writeup.md, answer in your own words:
+1. Which strategy won, and on what dimension? (Accuracy?
+Parse rate? Cost?)
+2. What surprised you? Either a strategy worked better than
+expected, or worse, or a specific snippet failed in a way
+you didn't predict.
+3. For *your* capstone domain, which strategy would you reach
+for first? Justify in 2-3 sentences.
+4. If you had another day, what would you try next? (Different
+model? More snippets? Different prompts?)
+That's the 1-page writeup. Don't pad it.
+What "done" looks like
+By the end you have, in your repo at mp1/:
+A notebook (mp1_prompt_lab.ipynb) or script (mp1_prompt_lab.py) that runs end-to-end
+A comparison table in the notebook (or as mp1_comparison.md)
+A 1-page writeup (mp1_writeup.md) answering the 4 reflection questions
+A git commit: feat(mp1): prompt strategy comparison + writeup
+Optional (no marks deducted if absent):
+An ADR (docs/adr/0002-prompting-strategy.md) capturing your
+strategy choice for the capstone
+Re-running your winning strategy against your own capstone
+domain (5-10 examples) for personal calibration
+Help and FAQ
+See learner/MP1_FAQ.md for anticipated questions.
+For anything not covered there, post in the cohort channel. The
+instructor will collect new questions and update the FAQ.
+Submit
+git add mp1/    
+    git commit -m "feat(mp1): prompt strategy comparison + writeup"    
+    git push
+Mention "MP1 ready for review" in the cohort channel.
