@@ -1,0 +1,43 @@
+
+Validating 2 questions from predefined_questions.jsonl...
+
+PASS q1_red_headed_league_assistant
+  Question: Who was the assistant working at Jabez Wilson's pawnshop, and what was his real identity?
+  Cited: 01_red_headed_league.txt
+  Expected: 01_red_headed_league.txt
+  Facts matched: 2/5
+  Latency: 11528ms
+
+PASS q2_speckled_band_murder_weapon
+  Question: What killed Julia Stoner at Stoke Moran, and how was the method discovered?
+  Cited: 02_speckled_band.txt
+  Expected: 02_speckled_band.txt
+  Facts matched: 4/6
+  Latency: 5041ms
+
+Source-match: 2/2
+
+Validating 3 questions from learner_questions.jsonl...
+
+PASS q3_blue_carbuncle_thief
+  Question: Who stole the Blue Carbuncle, who helped him, and how did the gemstone end up inside Henry Baker's goose?
+  Cited: 03_blue_carbuncle.txt
+  Expected: 03_blue_carbuncle.txt
+  Facts matched: 3/5
+  Latency: 2515ms
+
+PASS q4_engineers_thumb_evidence
+  Question: What evidence led Holmes to conclude that Colonel Stark's hydraulic press was being used for counterfeiting rather than compressing fuller's earth?
+  Cited: 04_engineers_thumb.txt
+  Expected: 04_engineers_thumb.txt
+  Facts matched: 5/5
+  Latency: 3517ms
+
+PASS q5_scandal_in_bohemia_photograph
+  Question: How did Holmes use the false fire at Briony Lodge to locate the photograph, and why was he unable to recover it the next morning?
+  Cited: 05_scandal_in_bohemia.txt
+  Expected: 05_scandal_in_bohemia.txt
+  Facts matched: 4/6
+  Latency: 2544ms
+
+Source-match: 3/3

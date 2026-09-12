@@ -16,3 +16,9 @@ results.json
 
 # OS
 .DS_Store
+
+# Week 9 Mini-RAG generated files
+learner/.env
+learner/__pycache__/
+learner/*.pyc
+learner/mp2_validation_stderr.txt
